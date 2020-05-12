@@ -6,7 +6,9 @@ import 'package:zomatoblock/BLoC/bloc.dart';
 import 'dart:async';
 
 // 1
+//Future<int>
 class BlocProvider<T extends Bloc> extends StatefulWidget {
+
   final Widget child;
   final T bloc;
 
@@ -15,7 +17,10 @@ class BlocProvider<T extends Bloc> extends StatefulWidget {
 
   // 2
   static T of<T extends Bloc>(BuildContext context) {
+
+
     final type = _providerType<BlocProvider<T>>();
+
     final BlocProvider<T> provider =
 
     // this one is deprecated use this method:
@@ -23,6 +28,7 @@ class BlocProvider<T extends Bloc> extends StatefulWidget {
     // context.ancestorWidgetOfExactType(type)
 
     context.findAncestorWidgetOfExactType();
+
     return provider.bloc;
   }
 

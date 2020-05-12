@@ -1,13 +1,21 @@
 
 
 import 'package:flutter/material.dart';
+
+    // Blocks
 import 'package:zomatoblock/BLoC/bloc_provider.dart';
 import 'package:zomatoblock/BLoC/restaurant_bloc.dart';
-import 'package:zomatoblock/DataLayer/location.dart';
-import 'package:zomatoblock/DataLayer/restaurant.dart';
+
+
+    // UIs
 import 'package:zomatoblock/UI/favorite_screen.dart';
 import 'package:zomatoblock/UI/location_screen.dart';
 import 'package:zomatoblock/UI/restaurant_tile.dart';
+
+
+    // Models
+import 'package:zomatoblock/DataLayer/location.dart';
+import 'package:zomatoblock/DataLayer/restaurant.dart';
 
 class RestaurantScreen extends StatelessWidget {
   final Location location;
@@ -31,8 +39,11 @@ class RestaurantScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
+
       appBar: AppBar(
+
         title: Text(location.title),
         actions: <Widget>[
           IconButton(
@@ -45,7 +56,9 @@ class RestaurantScreen extends StatelessWidget {
 //      body: _buildSearch(context),
 
       body: _buildSearch(context),
+
       floatingActionButton: FloatingActionButton(
+
         child: Icon(Icons.edit_location),
         onPressed: () => Navigator.of(context).push(MaterialPageRoute(
             builder: (context) => LocationScreen(
@@ -54,6 +67,8 @@ class RestaurantScreen extends StatelessWidget {
             ),
             fullscreenDialog: true)),
       ),
+
+
     );
 
   }

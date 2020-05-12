@@ -1,8 +1,13 @@
 
 import 'package:flutter/material.dart';
+
 import 'package:zomatoblock/BLoC/bloc_provider.dart';
 import 'package:zomatoblock/BLoC/favorite_bloc.dart';
+
+    //models
 import 'package:zomatoblock/DataLayer/restaurant.dart';
+
+
 import 'package:zomatoblock/UI/image_container.dart';
 
 class RestaurantDetailsScreen extends StatelessWidget {
@@ -19,7 +24,9 @@ class RestaurantDetailsScreen extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
+
           _buildBanner(),
+
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
@@ -27,7 +34,7 @@ class RestaurantDetailsScreen extends StatelessWidget {
               children: <Widget>[
                 Text(
                   restaurant.cuisines,
-                  style: textTheme.subtitle.copyWith(fontSize: 18),
+                  style: textTheme.subtitle2.copyWith(fontSize: 18),
                 ),
                 Text(
                   restaurant.address,
@@ -36,8 +43,12 @@ class RestaurantDetailsScreen extends StatelessWidget {
               ],
             ),
           ),
+
           _buildDetails(context),
+
           _buildFavoriteButton(context)
+
+
         ],
       ),
     );
@@ -76,20 +87,27 @@ class RestaurantDetailsScreen extends StatelessWidget {
   Widget _buildFavoriteButton(BuildContext context) {
     final bloc = BlocProvider.of<FavoriteBloc>(context);
     return StreamBuilder<List<Restaurant>>(
+
       stream: bloc.favoritesStream,
+
       initialData: bloc.favorites,
+
       builder: (context, snapshot) {
         List<Restaurant> favorites =
         (snapshot.connectionState == ConnectionState.waiting)
             ? bloc.favorites
             : snapshot.data;
+
         bool isFavorite = favorites.contains(restaurant);
 
         return FlatButton.icon(
           // 2
           onPressed: () => bloc.toggleRestaurant(restaurant),
+
           textColor: isFavorite ? Theme.of(context).accentColor : null,
+
           icon: Icon(isFavorite ? Icons.favorite : Icons.favorite_border),
+
           label: Text('Favorite'),
         );
       },

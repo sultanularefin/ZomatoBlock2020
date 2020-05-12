@@ -35,6 +35,12 @@ class RestaurantFinder extends StatelessWidget {
 
     */
 
+
+//    class BlocProvider<T extends Bloc> extends StatefulWidget {
+//
+//    final Widget child;
+//    final T bloc;
+
     return BlocProvider<LocationBloc>(
       bloc: LocationBloc(),
       child: BlocProvider<FavoriteBloc>(

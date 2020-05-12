@@ -1,8 +1,14 @@
+
+
 import 'package:flutter/material.dart';
+
+      // Block
 import 'package:zomatoblock/BLoC/bloc_provider.dart';
 import 'package:zomatoblock/BLoC/location_bloc.dart';
 import 'package:zomatoblock/BLoC/location_query_bloc.dart';
 
+
+      // Modle.
 import 'package:zomatoblock/DataLayer/location.dart';
 
 
@@ -50,6 +56,8 @@ class LocationScreen extends StatelessWidget {
 
 //    The BLoC is then stored in a BlocProvider, which will manage its lifecycle.
     // 2
+
+//    return StreamBuilder<Location>(
     return BlocProvider<LocationQueryBloc>(
       bloc: bloc,
       child: Scaffold(
@@ -126,12 +134,23 @@ class LocationScreen extends StatelessWidget {
 
           // Same no iteration.
 
+
+          // stream: BlocProvider.of<LocationBloc>(context).locationStream, IN OUR MAINSCREEN.
+
           onTap: () {
             final locationBloc = BlocProvider.of<LocationBloc>(context);
             locationBloc.selectLocation(location);
+
+            print('isFullScreenDialog:  $isFullScreenDialog');
+
+            // but isFullScreenDialog is false set, as defaultParameter.
+
             if (isFullScreenDialog) {
               Navigator.of(context).pop();
+              // returns to the previous screen which is main_screen. then based on the
+              // condition get's to here: RestaurantScreen(location: location);
             }
+
           },
 
 
