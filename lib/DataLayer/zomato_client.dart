@@ -8,12 +8,15 @@ import 'dart:convert' show json;
 
 import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';
+import 'package:zomatoblock/UI/restaurant_tile.dart';
+import './../Config/Secret.dart';
+
 
 import 'location.dart';
 import 'restaurant.dart';
 
 class ZomatoClient {
-  final _apiKey = '5a994a29f714161cf3bd91c5ce88dc56';
+  final _apiKey = zomatoKey;
   final _host = 'developers.zomato.com';
   final _contextRoot = 'api/v2.1';
 
