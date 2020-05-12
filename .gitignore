@@ -22,9 +22,9 @@ local.properties
 *.ipr
 *.iws
 .idea/
-#*/lib/Config
+*/lib/Config
 #*/lib/Config/
-*/lib/Config/Secret.dart
+#*/lib/Config/Secret.dart
 
 # The .vscode folder contains launch configuration and tasks you configure in
 # VS Code which you may wish to be included in version control, so this line
