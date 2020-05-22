@@ -55,10 +55,15 @@ class FavoriteBloc implements Bloc {
   // declartion and access.
 
 
-  //  How it know's from the Restaurant array that this are favorite;
+  //  How it know's from the Restaurant array that these are favorites;
 
   // 1
   final _controller = StreamController<List<Restaurant>>.broadcast();
+
+//  FavoriteBloc
+//  1. lib/UI/restaurant_details_screen.dart
+//  2.lib/UI/favorite_screen.dart
+
 
   // INVOKER -> stream: bloc.favoritesStream,
   Stream<List<Restaurant>> get favoritesStream => _controller.stream;

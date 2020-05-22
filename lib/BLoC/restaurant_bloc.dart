@@ -6,6 +6,10 @@ import 'package:zomatoblock/DataLayer/restaurant.dart';
 import 'package:zomatoblock/DataLayer/zomato_client.dart';
 import 'dart:async';
 
+//RestaurantBloc
+//in lib/UI/restaurant_screen.dart
+
+
 class RestaurantBloc implements Bloc {
   final Location location;
   final _client = ZomatoClient();
